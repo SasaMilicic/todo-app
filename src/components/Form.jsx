@@ -1,10 +1,15 @@
 import React from 'react';
 import { StForm } from './form-style.js';
 
-function Form() {
+function Form({ setInputText }) {
+  const inputTextHandle = (e) => {
+    setInputText(e.target.value);
+    // console.log(e.target.value);
+  };
+
   return (
     <StForm>
-      <input type="text" />
+      <input onChange={inputTextHandle} type="text" />
       <button type="submit"> Add</button>
       <div>
         <select name="todos">
