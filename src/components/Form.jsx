@@ -7,10 +7,16 @@ function Form({ setInputText }) {
     // console.log(e.target.value);
   };
 
+  const submitTodoHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <StForm>
       <input onChange={inputTextHandle} type="text" />
-      <button type="submit"> Add</button>
+      <button onClick={submitTodoHandler} type="submit">
+        Add
+      </button>
       <div>
         <select name="todos">
           <option value="all">All</option>
