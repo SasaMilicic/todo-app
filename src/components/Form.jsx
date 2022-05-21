@@ -6,7 +6,7 @@ const newTodoItem = (someText) => {
   return { text: someText, completed: false, id: getRandomID() };
 };
 
-function Form({ inputText, setInputText, todos, setTodos }) {
+function Form({ inputText, setInputText, todos, setTodos, setStatus }) {
   const inputTextHandle = (e) => {
     setInputText(e.target.value);
   };
@@ -17,6 +17,11 @@ function Form({ inputText, setInputText, todos, setTodos }) {
     setInputText('');
   };
 
+  const statusHandler = (e) => {
+    console.log(e.target.value);
+    setStatus(e.target.value);
+  };
+
   return (
     <StForm>
       <input onChange={inputTextHandle} type="text" value={inputText} />
@@ -24,7 +29,7 @@ function Form({ inputText, setInputText, todos, setTodos }) {
         Add
       </button>
       <div>
-        <select name="todos">
+        <select onChange={statusHandler} name="todos">
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>

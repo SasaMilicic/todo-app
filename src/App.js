@@ -6,6 +6,24 @@ import TodoList from './components/TodoList';
 function App() {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState('all');
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
+  const filterHandler = () => {
+    switch (status) {
+      case 'Completed':
+        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        break;
+
+      case 'Uncompleted':
+        setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        break;
+
+      default:
+        setFilteredTodos(todos);
+        break;
+    }
+  };
 
   return (
     <div className="App">
@@ -16,6 +34,7 @@ function App() {
           setInputText={setInputText}
           todos={todos}
           setTodos={setTodos}
+          setStatus={setStatus}
         />
         <TodoList todos={todos} setTodos={setTodos} />
       </header>
