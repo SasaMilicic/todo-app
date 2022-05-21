@@ -2,12 +2,12 @@ import React from 'react';
 import { StTodoList } from './todo-list-style';
 import Todo from './Todo';
 
-function TodoList({ todos }) {
+function TodoList({ todos, setTodos }) {
   return (
     <StTodoList>
       <ul>
-        {todos.map(({ id, ...todo }) => (
-          <Todo key={id} text={todo.text} />
+        {todos.map((todo) => (
+          <Todo todos={todos} setTodos={setTodos} key={todo.id} todo={todo} />
         ))}
       </ul>
     </StTodoList>
