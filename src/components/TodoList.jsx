@@ -1,5 +1,5 @@
 import React from 'react';
-import { StTodoList } from './todo-list-style';
+import { StTodoList } from './style-components';
 import Todo from './Todo';
 
 function TodoList({ todos, setTodos, filteredTodos }) {

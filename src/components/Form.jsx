@@ -1,5 +1,5 @@
 import React from 'react';
-import { StForm } from './form-style.js';
+import { StForm, StButton } from './style-components';
 
 const getRandomID = () => Math.random().toString(36).slice(2);
 const newTodoItem = (someText) => {
@@ -21,10 +21,13 @@ function Form({ inputText, setInputText, todos, setTodos, setStatus }) {
 
   return (
     <StForm>
-      <input onChange={inputTextHandle} type="text" value={inputText} />
-      <button onClick={submitTodoHandler} type="submit">
-        Add
-      </button>
+      <section>
+        <input onChange={inputTextHandle} type="text" value={inputText} />
+        <StButton onClick={submitTodoHandler} type="submit">
+          +
+        </StButton>
+      </section>
+
       <div>
         <select onChange={statusHandler} name="todos">
           <option value="all">All</option>

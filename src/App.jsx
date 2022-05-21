@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React, { useState, useEffect, Fragment } from 'react';
+import { GlobalStyle, StApp } from './style-app.js';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 
@@ -41,30 +41,33 @@ function App() {
   const getLocalTodos = () => {
     if (localStorage.getItem('todos') === null) {
       localStorage.setItem('todos', JSON.stringify([]));
-    } else {
-      let todoLocal = JSON.parse(localStorage.getItem('todos'));
-      setTodos(todoLocal);
+      return;
     }
+    let todoLocal = JSON.parse(localStorage.getItem('todos'));
+    setTodos(todoLocal);
   };
 
   return (
-    <div className="App">
-      <header>
-        <h1> Todo List</h1>
-        <Form
-          inputText={inputText}
-          setInputText={setInputText}
-          todos={todos}
-          setTodos={setTodos}
-          setStatus={setStatus}
-        />
-        <TodoList
-          todos={todos}
-          setTodos={setTodos}
-          filteredTodos={filteredTodos}
-        />
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <StApp>
+        <header>
+          <h1> Todo List</h1>
+          <Form
+            inputText={inputText}
+            setInputText={setInputText}
+            todos={todos}
+            setTodos={setTodos}
+            setStatus={setStatus}
+          />
+          <TodoList
+            todos={todos}
+            setTodos={setTodos}
+            filteredTodos={filteredTodos}
+          />
+        </header>
+      </StApp>
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StTodo } from './todo-style';
+import { StTodo, StButton } from './style-components';
 
 function Todo({ todos, setTodos, todo }) {
   const deleteHandler = () =>
@@ -17,10 +17,16 @@ function Todo({ todos, setTodos, todo }) {
   };
 
   return (
-    <StTodo>
-      <li>{todo.text}</li>
-      <button onClick={completeHandler}> Complete </button>
-      <button onClick={deleteHandler}> Delete </button>
+    <StTodo style={{ opacity: todo.completed ? 0.4 : '' }}>
+      <li>
+        <p style={{ textDecoration: todo.completed ? 'line-through' : '' }}>
+          {todo.text}
+        </p>
+        <div>
+          <StButton onClick={completeHandler}> &#10004; </StButton>
+          <StButton onClick={deleteHandler}> X </StButton>
+        </div>
+      </li>
     </StTodo>
   );
 }
