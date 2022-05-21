@@ -5,8 +5,6 @@ function Todo({ todos, setTodos, todo }) {
   const deleteHandler = () =>
     setTodos(todos.filter((item) => item.id !== todo.id));
 
-  console.log(todo.id);
-
   const completeHandler = () => {
     setTodos(
       todos.map((item) => {

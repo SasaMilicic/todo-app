@@ -3,7 +3,6 @@ import { StTodoList } from './todo-list-style';
 import Todo from './Todo';
 
 function TodoList({ todos, setTodos, filteredTodos }) {
-  console.log(todos);
   return (
     <StTodoList>
       <ul>
