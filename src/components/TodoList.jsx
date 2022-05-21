@@ -2,16 +2,13 @@ import React from 'react';
 import { StTodoList } from './todo-list-style';
 import Todo from './Todo';
 
-function TodoList() {
+function TodoList({ todos }) {
   return (
     <StTodoList>
       <ul>
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
+        {todos.map(({ id, ...todo }) => (
+          <Todo key={id} text={todo.text} />
+        ))}
       </ul>
     </StTodoList>
   );

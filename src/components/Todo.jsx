@@ -1,10 +1,10 @@
 import React from 'react';
 import { StTodo } from './todo-style';
 
-function Todo() {
+function Todo({ text }) {
   return (
     <StTodo>
-      <li>TODO ITEM</li>
+      <li>{text}</li>
       <button> Complete </button>
       <button> Delete </button>
     </StTodo>
