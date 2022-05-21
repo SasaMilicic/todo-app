@@ -17,10 +17,7 @@ function Form({ inputText, setInputText, todos, setTodos, setStatus }) {
     setInputText('');
   };
 
-  const statusHandler = (e) => {
-    console.log(e.target.value);
-    setStatus(e.target.value);
-  };
+  const statusHandler = (e) => setStatus(e.target.value);
 
   return (
     <StForm>
